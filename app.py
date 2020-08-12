@@ -18,9 +18,9 @@ def predict():
     #int_features = [float(x) for x in request.form.values()]
     #final_features = [np.array(int_features)]
     #prediction = model.predict(final_features) 
-    data = request.args
-    lat = request.json['latitude']
-    long = request.json['longitude']
+    data = request.get_json()
+    lat = data['latitude']
+    long = data['longitude']
     prediction = model.predict([lat,long])
     output = prediction[0]
     #return jsonify(output)
