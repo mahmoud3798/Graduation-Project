@@ -21,7 +21,7 @@ def predict():
     data = request.args
     lat = request.json['latitude']
     long = request.json['longitude']
-    prediction = model.predict([np.array(lat,long)])
+    prediction = model.predict([lat,long])
     output = prediction[0]
     #return jsonify(output)
     return output
