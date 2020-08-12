@@ -13,16 +13,17 @@ def home():
 def predict():
     '''
     #data = request.get_json(force=True)
-    data = [float (x) for x in request.get_json(force=True)]
-    prediction = model.predict([[np.array(data['latitude','longitude'])]])
-
+    #data = [float (x) for x in request.get_json(force=True)]
+    #prediction = model.predict([[np.array(data['latitude','longitude'])]])
     #int_features = [float(x) for x in request.form.values()]
     #final_features = [np.array(int_features)]
-    #prediction = model.predict(final_features)
-
+    #prediction = model.predict(final_features) 
+    data = request.args
+    lat = float(request.args['latitude'])
+    long = float(request.args['longitude'])
+    prediction = model.predict([np.array(lat,long)])
     output = prediction[0]
     return jsonify(output)
-
     #return render_template('index.html', prediction_text='Activity will be'.format(output))
     
 if __name__ == "__main__":
