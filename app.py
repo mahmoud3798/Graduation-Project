@@ -12,7 +12,8 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     '''
-    data = request.get_json(force=True)
+    #data = request.get_json(force=True)
+    data = [float (x) for x in request.get_json(force=True)]
     prediction = model.predict([[np.array(data['latitude','longitude'])]])
 
     #int_features = [float(x) for x in request.form.values()]
