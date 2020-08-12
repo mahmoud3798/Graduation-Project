@@ -23,7 +23,8 @@ def predict():
     long = request.json['longitude']
     prediction = model.predict([np.array(lat,long)])
     output = prediction[0]
-    return jsonify(output)
+    #return jsonify(output)
+    return output
     #return render_template('index.html', prediction_text='Activity will be'.format(output))
     
 if __name__ == "__main__":
