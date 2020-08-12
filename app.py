@@ -13,15 +13,16 @@ model = pickle.load(open('KNN_model.pkl', 'rb'))
 def predict():
     '''
     #data = request.get_json(force=True)
-    #data = [float (x) for x in request.get_json(force=True)]
+    data = [float (x) for x in request.get_json(force=True)]
     #prediction = model.predict([[np.array(data['latitude','longitude'])]])
     #int_features = [float(x) for x in request.form.values()]
     #final_features = [np.array(int_features)]
     #prediction = model.predict(final_features) 
-    data = request.get_json()
+    #data = request.get_json()
     lat = data['latitude']
     long = data['longitude']
-    prediction = model.predict([lat,long])
+    #prediction = model.predict([lat,long])
+    prediction = model.predict([np.array(data)])
     output = prediction[0]
     #return jsonify(output)
     #return output
