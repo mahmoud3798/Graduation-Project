@@ -17,7 +17,7 @@ def predict():
     prediction = model.predict(final_features) 
    
     output = prediction[0]
-    return render_template('index.html', prediction_text='Activity will be'.format(output))
+    return render_template('index.html', prediction_text='Activity will be {}'.format(output))
     
 if __name__ == "__main__":
     app.run(debug=True)
